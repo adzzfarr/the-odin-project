@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    min-height: 100vh;
+}
+
+.header, .footer {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    background-color: #1F2937;
+}
+
+.header {
+    justify-content: space-between;
+}
+
+.header .logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #F9FAF8;
+    margin: auto 15vw;
+}
+
+.header .links {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    margin: auto 10vw;
+}
+
+.header .links li {
+    list-style-type: none;
+}
+
+.header .links li a {
+    font-size: 18px;
+    color: #E5E7EB;
+    text-decoration: none;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    background-color: #1F2937;
+    padding: 96px 196px;
+}
+
+.intro .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.intro .hero-pic {
+    display: flex;
+    flex: 0 0 auto;
+    background-color: #E5E7EB;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 360px;
+}
+
+.intro .hero .main-text {
+    display: flex;
+    font-size: 48px;
+    color: #F9FAF8;
+    font-weight: 900;
+}
+
+.intro .hero .secondary-text {
+    display: flex;
+    flex-wrap: wrap;
+    color: #E5E7EB;
+    font-size: 16px;
+}
+
+.intro .hero .sign-up-button, .sign-up .dialog .sign-up-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3882F6;
+    color: white;
+    width: 80px;
+    height: 32px;
+    border-radius: 12px;
+    border-width: 0;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    padding: 64px 128px;
+}
+
+.info .info-title {
+    font-size: 36px;
+    color: #1F2937;
+    font-weight: 900;
+}
+
+.info .cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.info .cards .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 156px;
+    gap: 16px;
+}
+
+.info .cards .card img {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 128px;
+    width: 128px;
+    border: 2px solid #3882F6;
+    border-radius: 8px;
+}
+
+.info .cards .card text {
+    text-align: center;
+}
+
+.quote {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E5E7EB;
+    gap: 64px;
+    padding: 64px 384px;
+}
+
+.quote .quote-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.quote .quote-content .quote-text {
+    font-size: 36px;
+    font-style: italic;
+    color: #1F2937;
+}
+
+.quote .quote-content .credit {
+    font-size: 20px;
+    font-weight: 900;
+    text-align: end;
+}
+
+.sign-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 64px;
+}
+
+.sign-up .dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3882F6;
+    padding: 32px 128px;
+    gap: 128px;
+    border-radius: 8px;
+}
+
+.sign-up .dialog .message {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sign-up .dialog .message .message-header {
+    font-size: 18px;
+    color: white;
+    font-weight: 900;
+}
+
+.sign-up .dialog .message .message-content {
+    font-size: 12px;
+    color: white;
+}
+
+.sign-up .dialog .sign-up-button {
+    border: 1px solid white;
+}
+
+.footer {
+    justify-content: center;
+}
+
+.footer text {
+    color: white;
+}
