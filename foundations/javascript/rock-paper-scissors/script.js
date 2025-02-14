@@ -1,3 +1,15 @@
+let humanScore = 0;
+let computerScore = 0;
+
+const buttons = document.querySelectorAll("button");
+const results = document.querySelector("#results");
+
+const scores = document.createElement("div");
+const roundResult = document.createElement("div");
+
+results.appendChild(scores);
+results.appendChild(roundResult);
+
 function getComputerChoice() {
     let value = Math.random();
 
@@ -10,77 +22,52 @@ function getComputerChoice() {
     return "scissors"
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt("Rock, Paper, or Scissors?");
-    humanChoice.toLowerCase();
-
-    while (humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors") {
-        humanChoice = prompt("Please input one of: Rock, Paper, Scissors.");
-    }
-
-    humanChoice.toLowerCase();
-
-    if (humanChoice == "rock") {
-        return 'rock'
-    } else if (humanChoice == "paper") {
-        return 'paper'
-    } else if (humanChoice == "scissors") {
-        return 'scissors'
-    }
-
-    return null
+function capitalise(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function playRound(humanChoice, computerChoice) {
+    let resultMessage = '';
+    let capitalisedHumanChoice = capitalise(humanChoice);
+    let capitalisedComputerChoice = capitalise(computerChoice);
 
-function playGame() {
-    function playRound(humanChoice, computerChoice) {
-        if (humanChoice == 'rock') {
-            if (computerChoice == 'rock') {
-                console.log("Draw! You both chose Rock.");
-            } else if (computerChoice == 'paper') {
-                console.log("You lose! Paper beats Rock.");
-                ++computerScore;
-            } else {
-                console.log("You win! Rock beats Scissors.");
-                ++humanScore;
-            }
-        } else if (humanChoice == 'paper') {
-            if (computerChoice == 'paper') {
-                console.log("Draw! You both chose Paper.");
-            } else if (computerChoice == 'rock') {
-                console.log("You win! Paper beats Rock.");
-                ++humanScore;
-            } else {
-                console.log("You lose! Scissors beats Paper.");
-                ++computerScore;
-            }
-        } else {
-            if (computerChoice == 'scissors') {
-                console.log("Draw! You both chose Scissors.");
-            } else if (computerChoice == 'rock') {
-                console.log("You lose! Rock beats Scissors.");
-                ++computerScore;
-            } else {
-                console.log("You win! Scissors beats Paper.");
-                ++humanScore;
-            }
+    if (humanChoice === computerChoice) {
+        resultMessage = `Draw! You both chose ${capitalisedHumanChoice}.`;
+    } else if (
+        (humanChoice === 'rock' && computerChoice === 'scissors') ||
+        (humanChoice === 'paper' && computerChoice === 'rock') ||
+        (humanChoice === 'scissors' && computerChoice === 'paper')
+    ) {
+        resultMessage = `You win! ${capitalisedHumanChoice} beats ${capitalisedComputerChoice}.`;
+        ++humanScore;
+    } else {
+        resultMessage = `You lose! ${capitalisedComputerChoice} beats ${capitalisedHumanChoice}.`;
+        ++computerScore;
+    }
+
+    roundResult.textContent = resultMessage;
+}
+
+function reset() {
+    humanScore = 0;
+    computerScore = 0;
+    scores.textContent = `You: ${humanScore}, Computer: ${computerScore}`;
+    roundResult.textContent = "";
+}
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(button.id, getComputerChoice());
+        scores.textContent = `You: ${humanScore}, Computer: ${computerScore}`;
+
+        if (humanScore === 5) {
+            alert('You won!');
+            reset();
         }
-    }
-    
-    let humanScore = 0;
-    let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice(); 
-        console.log(humanChoice);
-        console.log(computerChoice);
-        playRound(humanChoice, computerChoice);
-        
-        console.log(humanScore);
-        console.log(computerScore);
-    }
-
-}
-
-playGame();
+        if (computerScore === 5) {
+            alert('You lost!');
+            reset();
+        }
+    });
+});
