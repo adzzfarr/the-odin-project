@@ -1,0 +1,13 @@
+#container {
+    height: 360px;
+    width: 360px;
+}
+
+.row {
+    display: flex;
+}
+
+.square {
+    box-sizing: border-box;
+    border: 1px solid black;
+}
