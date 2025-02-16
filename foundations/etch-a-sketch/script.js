@@ -62,7 +62,7 @@ function generateGrid(container, height, width) {
         });
 
         square.addEventListener("mouseleave", () => {
-            square.style.backgroundColor = "white";
+            darkenSquare(square);
         })
     }
 }
@@ -76,6 +76,12 @@ function getRandomColor() {
     const values = [0, 0, 0].map(() => Math.floor(Math.random() * 256));
 
     return `rgb(${values[0]}, ${values[1]}, ${values[2]})`;
+}
+
+function darkenSquare(square) {
+    const opacity = Number(window.getComputedStyle(square).getPropertyValue("opacity"));
+    square.style.opacity = opacity + 0.1;
+    console.log(square.style.opacity);
 }
 
 const container = document.querySelector("#container");
