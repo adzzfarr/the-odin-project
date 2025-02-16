@@ -55,8 +55,10 @@ function generateGrid(container, height, width) {
     }
 
     function addRequiredEventListeners(square) {
+        const randomColor = getRandomColor();
+
         square.addEventListener("mouseover", () => {
-            square.style.backgroundColor = "black";
+            square.style.backgroundColor = randomColor;
         });
 
         square.addEventListener("mouseleave", () => {
@@ -68,6 +70,12 @@ function generateGrid(container, height, width) {
 function removeGrid(container) {
     const grid = container.querySelectorAll(".row");
     grid.forEach((row) => container.removeChild(row));
+}
+
+function getRandomColor() {
+    const values = [0, 0, 0].map(() => Math.floor(Math.random() * 256));
+
+    return `rgb(${values[0]}, ${values[1]}, ${values[2]})`;
 }
 
 const container = document.querySelector("#container");
