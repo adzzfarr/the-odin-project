@@ -35,11 +35,11 @@ function generateButtons(container) {
     const display = container.querySelector('#display');
 
     const buttonLabels = [
-        ['C', '÷'],
+        ['DEL', '%', '÷'],
         ['7', '8', '9', '*'],
         ['4', '5', '6', '-'],
         ['1', '2', '3', '+'],
-        ['%', '0', '.', '='],
+        ['C', '0', '.', '='],
     ];
 
     for (const buttonRow of buttonLabels) {
@@ -64,8 +64,8 @@ function generateButtons(container) {
         button.style.margin = `${marginTopBottom}px ${marginLeftRight}px`;
         button.style.height = `${numpadHeight / 5 - 2 * marginTopBottom}px`;
 
-        if (button.textContent === 'C') {
-            button.style.width = `${numpadWidth * (3 / 4) - 2 * marginLeftRight}px`;
+        if (button.textContent === 'DEL') {
+            button.style.width = `${numpadWidth * 0.5 - 2 * marginLeftRight}px`;
         } else {
             button.style.width = `${numpadWidth / 4 - 2 * marginLeftRight}px`;
         }
@@ -92,6 +92,20 @@ function generateButtons(container) {
             });
         } else {
             switch(buttonLabel) {
+                case 'DEL':
+                    button.addEventListener('click', () => {
+                        if (x !== undefined && y === undefined && op === undefined) {
+                            x = x.toString().slice(0, -1);
+                        } else if (x !== undefined && y === undefined && op !== undefined) {
+                            op = undefined;
+                        } else if (x !== undefined && y !== undefined && op !== undefined) {
+                            y = y.toString().slice(0, -1);
+                        }
+
+                        display.textContent = y ?? x;
+                    });
+                    break
+
                 case 'C':
                     button.addEventListener('click', () => {
                         display.textContent = ' ';
