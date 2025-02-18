@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 18px;
+    height: 300px;
+    width: 200px;
+    margin: 16px auto;
+}
+
+#display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+    font-size: 24px;
+    border: 1px solid black;
+    border-radius: 8px;
+    flex: 1;
+    padding: 8px 16px;
+    margin: 16px 16px 4px 16px;  /* top right bottom left */
+}
+#numpad {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 12px;
+    flex: 4;
+    align-items: space-between;
+    margin: 8px 16px 16px 16px;
+    padding: 8px 8px;
+}
