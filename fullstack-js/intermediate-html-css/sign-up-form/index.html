@@ -8,56 +8,62 @@
 </head>
 <body>
     <div class="container">
-        <div class="logo">
+        <div class="left">
             <img id="background-img" src="./assets/images/halie-west-25xggax4bSA-unsplash.jpg">
             <div class="banner">
                 <img id="logo-img" src="./assets/images/odin-lined.png">
                 <span id="logo-name">ODIN</span>
             </div>
         </div>
-        <div class="content">
-            <div class="form">
-                <div id="greeting">
-                    <p>
-                        This is not a real online service! You know you need something like this in your life to help you realise your deepest dreams. Sign up <em>now</em> to get started.
-                    </p>
-                    <p>
-                        You know you want to.
-                    </p>
+        <div class="right">
+            <div class="content">
+                <div class="form">
+                    <div id="greeting">
+                        <p>
+                            This is not a real online service! You know you need something like this in your life to help you realise your deepest dreams. Sign up <em>now</em> to get started.
+                        </p>
+                        <p>
+                            You know you want to.
+                        </p>
+                    </div>
+                    <form>
+                        <fieldset>
+                            <legend>Let's do this!</legend>
+                            <div id="col_1">
+                                <label for="first_name">
+                                    FIRST NAME
+                                    <input type="text" id="first_name" name="first_name" required />
+                                </label>
+                                <label for="email">
+                                    EMAIL
+                                    <input type="email" id="email" name="email" required />
+                                </label>
+                                <label for="pwd">
+                                    PASSWORD
+                                    <input type="password" id="pwd" name="password" required />
+                                </label>
+                            </div>
+                            <div id="col_2">
+                                <label for="last_name">
+                                    LAST NAME
+                                    <input type="text" id="last_name" name="last_name" required />
+                                </label>
+                                <label for="phone_no">
+                                    PHONE NUMBER
+                                    <input type="number" id="phone_no" name="phone_number" required />
+                                </label>
+                                <label for="confirm_pwd">
+                                    CONFIRM PASSWORD
+                                    <input type="password" id="confirm_pwd" name="confirm_password" required />
+                                </label>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-                <form>
-                    <fieldset>
-                        <legend>Let's do this!</legend>
-                        <div id="col_1">
-                            <label for="first_name">
-                                FIRST NAME
-                                <input type="text" id="first_name" name="first_name" required />
-                            </label>
-                            <label for="email">
-                                EMAIL
-                                <input type="email" id="email" name="email" required />
-                            </label>
-                            <label for="pwd">
-                                PASSWORD
-                                <input type="password" id="pwd" name="password" required />
-                            </label>
-                        </div>
-                        <div id="col_2">
-                            <label for="last_name">
-                                LAST NAME
-                                <input type="text" id="last_name" name="last_name" required />
-                            </label>
-                            <label for="phone_no">
-                                PHONE NUMBER
-                                <input type="number" id="phone_no" name="phone_number" required />
-                            </label>
-                            <label for="confirm_pwd">
-                                CONFIRM PASSWORD
-                                <input type="password" id="confirm_pwd" name="confirm_password" required />
-                            </label>
-                        </div>
-                    </fieldset>
-                </form>
+            </div>
+            <div id="create-account">
+                <button type="submit">Create Account</button>
+                <span>Already have an account? <a href="">Log In</a></span>
             </div>
         </div>
     </div>

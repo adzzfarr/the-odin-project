@@ -18,7 +18,7 @@ body {
     height: 100vh;
 }
 
-.logo {
+.left {
     width: 50vw;
     height: 100vh;
     display: flex;
@@ -49,6 +49,11 @@ body {
     align-items: center;
 }
 
+.right {
+    display: flex;
+    flex-direction: column;
+}
+
 .form {
     box-shadow: 0 3px 2px -2px gray;
 }
@@ -66,7 +71,9 @@ body {
 }
 
 #greeting {
-    padding: 32px;
+    padding: 32px 0;
+    padding-right: 32px;
+    margin-left: 48px;
     margin-top: 32px;
     font-weight: 600;
 }
@@ -76,7 +83,8 @@ p + p {
 }
 
 form {
-    padding: 0 32px 12px 32px;
+    padding-bottom: 12px;
+    padding-left: 48px;
 }
 
 fieldset {
@@ -125,4 +133,36 @@ input:valid {
     border: 0.1rem solid rgb(1, 111, 123);
     box-shadow: black 0.03rem 0.03rem 0.03rem;
     outline: none;
+}
+
+#create-account {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin: 28px auto 0 48px;
+    background-color: #596D48;
+    border: 0.05rem solid gray;
+    padding: 0.5rem 2rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: white;
+}
+
+#create-account span {
+    margin-top: 20px;
+    margin-left: 48px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+a:link {
+    text-decoration: none;
+    color: #596D48;
+}
+
+a:visited {
+    color: #596D48;
 }
