@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+#sidebar {
+    background-color: rgba(164, 164, 164, 0.5);
+    width: 30vw;
+}
+
+#sidebar fieldset {
+    border: none;
+    padding: 0.5rem;
+}
+
+input {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#completion-buttons {
+    display: flex;
+    padding-top: 0.25rem;
+    gap: 15px;
+}
+
+#completion-buttons label {
+    display: flex;
+    align-self: center;
+    gap: 5px;
+}
+
+.book-card {
+    width: 100%; 
+    box-sizing: border-box; 
+    border: 1px solid black;
+    padding: 12px;
+    margin: 10px 12px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
