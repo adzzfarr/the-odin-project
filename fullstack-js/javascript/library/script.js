@@ -9,6 +9,8 @@ function Book(title, author, pages, isRead) {
     this.pages = pages;
     this.isRead = isRead;
     
+    this.toggleReadStatus = () => this.isRead = !this.isRead;
+    
     this.readStatus = isRead ? 'read' : 'not read yet';
 
     this.info = function() {
@@ -26,6 +28,7 @@ function removeBookFromLibrary(id, library) {
     const index = library.findIndex(book => book.id === id);
     library.splice(index, 1);
 }
+
 
 function displayBooks(container, library) {
     container.innerHTML = '';
@@ -57,13 +60,19 @@ function displayBooks(container, library) {
         // delete button
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', () => onClickDelete(card.dataset.bookid, library, container));
+        deleteButton.addEventListener('click', () => onClickDelete(card.dataset.bookid, container, library));
+
+        // toggle read status button
+        const toggleReadStatusButton = document.createElement('button');
+        toggleReadStatusButton.textContent = 'Toggle Read Status';
+        toggleReadStatusButton.addEventListener('click', () => onClickToggle(card.dataset.bookid, container, library))
 
         card.appendChild(titleElement);
         card.appendChild(authorElement);
         card.appendChild(pagesElement);
         card.appendChild(readElement);
         card.appendChild(deleteButton);
+        card.appendChild(toggleReadStatusButton);
 
         container.appendChild(card);
     });
@@ -83,8 +92,14 @@ function onClickSubmit(event, container, library) {
     displayBooks(container, library);
 }
 
-function onClickDelete(id, library, container) {
+function onClickDelete(id, container ,library) {
     removeBookFromLibrary(id, library);
+    displayBooks(container, library);
+}
+
+function onClickToggle(id, container, library) {
+    const index = library.findIndex(book => book.id === id);
+    library[index].toggleReadStatus();
     displayBooks(container, library);
 }
 
