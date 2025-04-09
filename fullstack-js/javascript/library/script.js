@@ -29,7 +29,6 @@ function removeBookFromLibrary(id, library) {
     library.splice(index, 1);
 }
 
-
 function displayBooks(container, library) {
     container.innerHTML = '';
 
@@ -103,13 +102,17 @@ function onClickToggle(id, container, library) {
     displayBooks(container, library);
 }
 
-const myLibrary = [];
-addBookToLibrary('The Hobbit', 'J.R.R Tolkien', 295, false, myLibrary);
-addBookToLibrary('The Hobbit 2', 'J.R.R Tolkien', 300, false, myLibrary);
-addBookToLibrary('The Hobbit 3', 'J.R.R Tolkien', 305, false, myLibrary);
 
-const content = document.querySelector("#content");
-displayBooks(content, myLibrary);
+const libraryApp = (function(doc) {
+    const myLibrary = [];
+    addBookToLibrary('The Hobbit', 'J.R.R Tolkien', 295, false, myLibrary);
+    addBookToLibrary('The Hobbit 2', 'J.R.R Tolkien', 300, false, myLibrary);
+    addBookToLibrary('The Hobbit 3', 'J.R.R Tolkien', 305, false, myLibrary);
 
-const submit = document.querySelector('#submit');
-submit.addEventListener('click', (event) => onClickSubmit(event, content, myLibrary));
+    const content = doc.querySelector("#content");
+
+    const submit = doc.querySelector('#submit');
+    submit.addEventListener('click', (event) => onClickSubmit(event, content, myLibrary));
+
+    displayBooks(content, myLibrary);
+})(document);
