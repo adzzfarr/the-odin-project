@@ -30,12 +30,8 @@ function Gameboard() {
     const getBoard = () => board;
 
     // addMarker method
-    const addMarker = (row, column, marker) => {
-        if (board[row][column] === 0) {   
+    const addMarker = (row, column, marker) => {  
             board[row][column] = marker;
-        } else {
-            alert('Cell already taken!');
-        }
     }
 
     // checkDraw method
@@ -75,9 +71,9 @@ function Gameboard() {
 
         // count consecutive matching markers, excluding the placed marker itself
         function countConsecutive(startRow, startColumn, dx, dy) {
-            count = 0;
-            currRow = startRow + dx;
-            currColumn = startColumn + dy;
+            let count = 0;
+            let currRow = startRow + dx;
+            let currColumn = startColumn + dy;
 
             while (currRow >= 0 && currRow < rows && 
                 currColumn >= 0 && currColumn < columns && 
@@ -95,13 +91,13 @@ function Gameboard() {
         container.innerHTML = ''
         
         for (let i = 0; i < board.length; i++) {
-            currRow = board[i];
+            let currRow = board[i];
 
             const rowElement = doc.createElement('div');
             rowElement.classList.add('row');
 
             for (let j = 0; j < currRow.length; j++) {
-                currCell = currRow[j];
+                let currCell = currRow[j];
 
                 const cellElement = buildCellElement(currCell);
 
