@@ -118,6 +118,10 @@ function Gameboard() {
                 });
                 
                 cellElement.addEventListener('click', () => {
+                    if (controller.getGameStatus()) {
+                        return;
+                    }
+
                     controller.playRound(i, j);
                     buildBoard(doc, boardContainer, activePlayerContainer, controller);
                 });
@@ -139,7 +143,13 @@ function Gameboard() {
         function renderActivePlayer(container) {
             const activePlayer = controller.getActivePlayer();
             const activePlayerDisplay = doc.createElement('h1');
-            activePlayerDisplay.innerHTML = `Current Turn: ${activePlayer.name} (${activePlayer.token})`;
+
+            if (controller.getGameStatus()) {
+                activePlayerDisplay.innerHTML = `${activePlayer.name} won!`;
+            } else {
+                activePlayerDisplay.innerHTML = `Current Turn: ${activePlayer.name} (${activePlayer.token})`;
+            }
+
             container.replaceChildren(activePlayerDisplay);
         }
     }
@@ -154,8 +164,11 @@ function GameController(board, playerOneName = 'Player One', playerTwoName = 'Pl
     ];
 
     let activePlayer = players[0];
+    let gameEnd = false;
 
     const getActivePlayer = () => activePlayer;
+
+    const getGameStatus = () => gameEnd;
 
     const switchPlayer = () => {
         activePlayer = activePlayer === players[0] ? players[1] : players[0];
@@ -170,8 +183,10 @@ function GameController(board, playerOneName = 'Player One', playerTwoName = 'Pl
         }
 
         if (board.checkDraw()) {
+            gameEnd = true;
             alert('Draw!');
         } else if (board.checkWin(row, column, activePlayer.token)) {
+            gameEnd = true
             alert(`${activePlayer.name} won!`);
         } else {
             switchPlayer();
@@ -180,9 +195,10 @@ function GameController(board, playerOneName = 'Player One', playerTwoName = 'Pl
 
     const resetGame = () => {
         activePlayer = players[0];
+        gameEnd = false;
     }
 
-    return { getActivePlayer, playRound, resetGame }
+    return { getActivePlayer, getGameStatus, playRound, resetGame }
 }   
 
 
@@ -203,8 +219,7 @@ const TicTacToe = (function(doc) {
         board.resetBoard();
         controller.resetGame();
 
-        board.buildBoard(doc, boardContainer, controller);
-        renderActivePlayer();
+        board.buildBoard(doc, boardContainer, activePlayerContainer, controller);
     });
     restartButtonContainer.appendChild(restartButton);
 
