@@ -88,13 +88,13 @@ function Gameboard() {
     }
 
     const buildBoard = (doc, container, controller) => {
-        container.innerHTML = ''
+        // reset 
+        container.innerHTML = '';
         
+        // gameboard
         for (let i = 0; i < board.length; i++) {
             let currRow = board[i];
-
             const rowElement = doc.createElement('div');
-            rowElement.classList.add('row');
 
             for (let j = 0; j < currRow.length; j++) {
                 let currCell = currRow[j];
@@ -173,4 +173,15 @@ const TicTacToe = (function(doc) {
     const controller = GameController(board);
 
     board.buildBoard(doc, boardContainer, controller);
+
+    // restart button
+    const restartButton = doc.createElement('button');
+    restartButton.classList.add('restart');
+    restartButton.innerHTML = 'Restart';
+    restartButton.addEventListener('click', () => {
+        board.resetBoard();
+        board.buildBoard(doc, boardContainer, controller);
+    });
+
+    boardContainer.parentNode.insertBefore(restartButton, boardContainer.nextSibling);
 })(document);
