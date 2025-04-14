@@ -157,7 +157,7 @@ function Gameboard() {
     return { resetBoard, getBoard, addMarker, checkDraw, checkWin, renderActivePlayer, buildBoard };
 }   
 
-function GameController(board, playerOneName = 'Player One', playerTwoName = 'Player Two') {
+function GameController(board, playerOneName, playerTwoName) {
     const players = [
         new Player(playerOneName, 'X'),
         new Player(playerTwoName, 'O')
@@ -207,8 +207,18 @@ const TicTacToe = (function(doc) {
     const boardContainer = doc.querySelector('#board');
     const restartButtonContainer = doc.querySelector('#restart');
 
+    let playerOneName = prompt('Player One Name:');
+    if (!playerOneName) {
+        playerOneName = 'Player 1';
+    }
+
+    let playerTwoName = prompt('Player Two Name:');
+    if (!playerTwoName) {
+        playerTwoName = 'Player 2';
+    }
+
     const board = Gameboard();
-    const controller = GameController(board);
+    const controller = GameController(board, playerOneName, playerTwoName);
 
     board.buildBoard(doc, boardContainer, activePlayerContainer, controller);
 
