@@ -87,9 +87,17 @@ function Gameboard() {
         }
     }
 
-    const buildBoard = (doc, container, controller) => {
-        // reset 
-        container.innerHTML = '';
+    const renderActivePlayer = (doc, container, controller) => {
+        const activePlayer = controller.getActivePlayer();
+        const activePlayerDisplay = doc.createElement('h1');
+        activePlayerDisplay.innerHTML = `Current Turn: ${activePlayer.name} (${activePlayer.token})`;
+        container.replaceChildren(activePlayerDisplay);
+    } 
+
+    const buildBoard = (doc, boardContainer, activePlayerContainer, controller) => {
+        // reset board
+        boardContainer.innerHTML = '';
+        renderActivePlayer(activePlayerContainer);
         
         // gameboard
         for (let i = 0; i < board.length; i++) {
@@ -111,13 +119,13 @@ function Gameboard() {
                 
                 cellElement.addEventListener('click', () => {
                     controller.playRound(i, j);
-                    buildBoard(doc, container, controller);
+                    buildBoard(doc, boardContainer, activePlayerContainer, controller);
                 });
 
                 rowElement.appendChild(cellElement);
             }
 
-            container.appendChild(rowElement);
+            boardContainer.appendChild(rowElement);
         }
 
         function buildCellElement(cell) {
@@ -127,9 +135,16 @@ function Gameboard() {
 
             return cellElement;
         }
+
+        function renderActivePlayer(container) {
+            const activePlayer = controller.getActivePlayer();
+            const activePlayerDisplay = doc.createElement('h1');
+            activePlayerDisplay.innerHTML = `Current Turn: ${activePlayer.name} (${activePlayer.token})`;
+            container.replaceChildren(activePlayerDisplay);
+        }
     }
 
-    return { resetBoard, getBoard, addMarker, checkDraw, checkWin, buildBoard };
+    return { resetBoard, getBoard, addMarker, checkDraw, checkWin, renderActivePlayer, buildBoard };
 }   
 
 function GameController(board, playerOneName = 'Player One', playerTwoName = 'Player Two') {
@@ -163,25 +178,34 @@ function GameController(board, playerOneName = 'Player One', playerTwoName = 'Pl
         }
     }
 
-    return { getActivePlayer, playRound }
+    const resetGame = () => {
+        activePlayer = players[0];
+    }
+
+    return { getActivePlayer, playRound, resetGame }
 }   
 
 
 const TicTacToe = (function(doc) {
+    const activePlayerContainer = doc.querySelector('#active');
     const boardContainer = doc.querySelector('#board');
+    const restartButtonContainer = doc.querySelector('#restart');
+
     const board = Gameboard();
     const controller = GameController(board);
 
-    board.buildBoard(doc, boardContainer, controller);
+    board.buildBoard(doc, boardContainer, activePlayerContainer, controller);
 
-    // restart button
     const restartButton = doc.createElement('button');
     restartButton.classList.add('restart');
     restartButton.innerHTML = 'Restart';
     restartButton.addEventListener('click', () => {
         board.resetBoard();
-        board.buildBoard(doc, boardContainer, controller);
-    });
+        controller.resetGame();
 
-    boardContainer.parentNode.insertBefore(restartButton, boardContainer.nextSibling);
+        board.buildBoard(doc, boardContainer, controller);
+        renderActivePlayer();
+    });
+    restartButtonContainer.appendChild(restartButton);
+
 })(document);
