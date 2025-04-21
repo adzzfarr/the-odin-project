@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-#page-header {
+header {
     display: flex;
     height: 10vh;
     align-items: center;
@@ -66,7 +66,7 @@ nav button:hover {
     padding-top: 5rem;
 }
 
-#header {
+#title {
     font-size: 4rem;
 }
 
