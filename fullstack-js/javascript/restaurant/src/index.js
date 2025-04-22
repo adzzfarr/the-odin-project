@@ -1,4 +1,23 @@
 import "./styles.css";
-import { loadPage } from "./DOM.js";
+import { loadHomePage } from "./home.js";
+import { loadMenuPage } from "./menu.js";
 
-document.addEventListener('DOMContentLoaded', loadPage(document));
+document.addEventListener('DOMContentLoaded', () => {
+    loadHomePage(document);
+});
+
+const content = document.querySelector('#content');
+
+const homeButton = document.querySelector('#home-button');
+homeButton.addEventListener('click', () => {
+    // clear content
+    content.innerHTML = '';
+    loadHomePage(document);
+});
+
+const menuButton = document.querySelector('#menu-button');
+menuButton.addEventListener('click', () => {
+    // clear content
+    content.innerHTML = '';
+    loadMenuPage(document);
+})

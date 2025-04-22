@@ -1,5 +1,5 @@
-export const loadPage = (doc) => {
-    const container = doc.querySelector('#content');
+export const loadHomePage = (doc) => {
+    const content = doc.querySelector('#content');
 
     const backgroundImage = doc.createElement('img');
     backgroundImage.id = 'background';
@@ -19,6 +19,9 @@ export const loadPage = (doc) => {
     textContainer.appendChild(title);
     textContainer.appendChild(description);
 
-    container.appendChild(backgroundImage);
-    container.appendChild(textContainer)
+    // clear existing content
+    content.innerHTML = '';
+
+    content.appendChild(backgroundImage);
+    content.appendChild(textContainer);
 };
