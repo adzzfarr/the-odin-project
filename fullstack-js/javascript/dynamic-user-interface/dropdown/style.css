@@ -1,0 +1,8 @@
+#dropdown-button {
+    margin: 1rem;
+    padding: 0.5rem 0.75rem;
+}
+
+#option-one, #option-two, #option-three {
+    cursor: pointer;
+}
