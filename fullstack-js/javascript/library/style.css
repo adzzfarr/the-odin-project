@@ -20,9 +20,13 @@ body {
     padding: 0.5rem;
 }
 
+label {
+    display: block;
+    margin-top: 0.25rem;
+}
+
 input {
     display: block;
-    margin-bottom: 0.5rem;
 }
 
 #completion-buttons {
@@ -49,4 +53,15 @@ input {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+}
+
+/* error message styles */
+.error {
+  display: none;           /* Hidden by default */
+  font-size: 0.875rem;     /* Slightly smaller than normal text */
+  color: red;              /* Simple red text */
+}
+
+.error.active {
+  display: block;          /* Show when active */
 }

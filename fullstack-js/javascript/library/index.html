@@ -9,33 +9,39 @@
 </head>
 <body>
     <div id="sidebar">
-        <fieldset>
-            <legend>Add a Book</legend>
+        <form novalidate>
+            <fieldset>
+                <legend>Add a Book</legend>
 
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title" />
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" required />
+                <span class="error" aria-live="polite"></span>
 
-            <label for="author">Author</label>
-            <input type="text" name="author" id="author"/>
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author" required />
+                <span class="error" aria-live="polite"></span>
 
-            <label for="pages">Number of Pages</label>
-            <input type="text" name="pages" id="pages" />
+                <label for="pages">Number of Pages</label>
+                <input type="number" min="1" name="pages" id="pages" required />
+                <span class="error" aria-live="polite"></span>
 
-            <label for="completion">Completion Status</label>
-            <div id="completion-buttons">
-                <label for="read">
-                    <input type="radio" id="read" name="completion" value="read" />
-                    Read
-                </label>
-    
-                <label for="not-read">
-                    <input type="radio" id="not-read" name="completion" value="not-read" />
-                    Not Read
-                </label>
-            </div>  
+                <label for="completion">Completion Status</label>
+                <div id="completion-buttons">
+                    <label for="read">
+                        <input type="radio" id="read" name="completion" value="read" required checked/>
+                        Read
+                    </label>
+        
+                    <label for="not-read">
+                        <input type="radio" id="not-read" name="completion" value="not-read"/>
+                        Not Read
+                    </label>
+                </div>  
+                <span class="error" aria-live="polite"></span>
 
-            <button type="submit" id="submit">Add Book</button>
-        </fieldset>
+                <button type="submit" id="submit">Add Book</button>
+            </fieldset>
+        </form>
     </div>
     <div id="content"></div>
 </body>
