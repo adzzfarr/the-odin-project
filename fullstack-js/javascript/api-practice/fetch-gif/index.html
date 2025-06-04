@@ -32,12 +32,10 @@
 
         const img = document.querySelector('img');
 
-        function fetchGif(searchQuery = 'cats') {
-            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=Z242Qv9dpcC9kKYxWNTUVqst1ZIPc3d8&s=${searchQuery}`, {mode: 'cors'})
-            .then((response) => response.json())
-            .then((response) => {
-                img.src = response.data.images.original.url;
-            });
+        async function fetchGif(searchQuery = 'cats') {
+            const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=Z242Qv9dpcC9kKYxWNTUVqst1ZIPc3d8&s=${searchQuery}`, {mode: 'cors'});
+            const data = await response.json();
+            img.src = data.data.images.original.url;
         }
 
         fetchGif();
