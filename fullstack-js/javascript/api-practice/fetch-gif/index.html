@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch GIF</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #change {
+            width: 30vw;
+        }
+    </style>
+    <div id="searchbar">
+        <input placeholder="Search for a GIF">
+        <button id="search">Search</button>
+    </div>
+    <img src="#">
+    <button id="change">Change Photo</button>
+    <script>
+        const input = document.querySelector('input');
+        const search = document.querySelector('#search');
+        search.addEventListener('click', () => {
+            const searchQuery = input.value.toString();
+            fetchGif(searchQuery);
+        });
+
+        const img = document.querySelector('img');
+
+        function fetchGif(searchQuery = 'cats') {
+            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=Z242Qv9dpcC9kKYxWNTUVqst1ZIPc3d8&s=${searchQuery}`, {mode: 'cors'})
+            .then((response) => response.json())
+            .then((response) => {
+                img.src = response.data.images.original.url;
+            });
+        }
+
+        fetchGif();
+
+        const change = document.querySelector('#change');
+        change.addEventListener('click', () => fetchGif());
+        
+    </script>
+</body>
+</html>
