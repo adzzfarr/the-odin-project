@@ -5,30 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <title>Document</title>
+    <title>Homepage</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const widthDisplay = document.createElement('div');
+            widthDisplay.style.position = 'fixed';
+            widthDisplay.style.top = '0.5rem';
+            widthDisplay.style.right = '0.5rem';
+            widthDisplay.style.zIndex = '9999';
+            widthDisplay.style.backgroundColor = 'rgba(0,0,0,0.7)';
+            widthDisplay.style.color = 'white';
+            widthDisplay.style.padding = '0.4rem 0.7rem';
+            widthDisplay.style.borderRadius = '4px';
+            widthDisplay.style.fontFamily = 'sans-serif';
+            widthDisplay.style.fontSize = '0.9rem';
+
+            document.body.appendChild(widthDisplay);
+
+            function updateWidth() {
+                widthDisplay.textContent = `Width: ${window.innerWidth}px`;
+            }
+
+            window.addEventListener('resize', updateWidth);
+            updateWidth(); // initial call
+        });
+    </script>
 </head>
 <body>
-    <main>
-        <div class="header">
-            <div class="trapezoid-bg"></div>
-            <div class="about">
-                <div class="profile-picture">
-                    <img src="./assets/images/person.jpg" alt="profile-picture" />
-                    <h1>Alex Williams</h1>
-                </div>
-                <div class="about-info">
-                    <div class="about-text">
-                        <h2>About Me</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia accusamus pariatur nihil deleniti totam corrupti voluptas iusto quos optio omnis voluptatibus consequatur veniam ab aperiam, molestiae eius cupiditate odio sed velit aspernatur. Et eaque sunt odio suscipit dignissimos dolores, praesentium incidunt mollitia, ea quas nulla id dolor, dolorem ratione magnam?</p>
-                    </div>
-                    <div class="icons">    
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-plain.svg" />
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" />
-                    </div>
+    <div class="trapezoid-bg"></div>
+    <header>
+        <div class="about">
+            <div class="profile-picture">
+                <img src="./assets/images/person.jpg" alt="profile-picture" />
+                <h1>Alex Williams</h1>
+            </div>
+            <div class="about-info">
+                <h2>About Me</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia accusamus pariatur nihil deleniti totam corrupti voluptas iusto quos optio omnis voluptatibus consequatur veniam ab aperiam, molestiae eius cupiditate odio sed velit aspernatur. Et eaque sunt odio suscipit dignissimos dolores, praesentium incidunt mollitia, ea quas nulla id dolor, dolorem ratione magnam?</p>
+                <div class="icons">    
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-plain.svg" />
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" />
                 </div>
             </div>
         </div>
+    </header>
+    <main>
         <div class="projects">
             <h2>My Work</h2>
             <div class="projects-grid">

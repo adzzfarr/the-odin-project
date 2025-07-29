@@ -5,69 +5,68 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Default Styling: Mobile */
 
-.header {
-    position: relative;
+h2 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 2rem;
 }
+
+/* Default Styling: Mobile */
 
 .trapezoid-bg {
     position: absolute;
-    top: 0;
+    top: -20vw;
     right: 0;
     width: 100%;
-    height: 100%;
+    height: 120vw;
+    transform: skewY(-20deg);
     background-color: #009ec2;
-    clip-path: polygon(0 0, 100% 0, 100% 25%, 0 35%);   
-    z-index: 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    z-index: -1;
 }
 
-.about {
-    position: relative;
-    z-index: 1;
+header {
     display: flex;
     flex-direction: column;
-    padding-bottom: 5rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
 }
 
 .profile-picture {
     position: relative;
     display: flex;
     justify-content: center;
-    padding: 1rem;
     color: white;
 }
 
 .profile-picture img {
-    width: 95%;
+    width: 100%;
     height: auto;
 }
 
 .profile-picture h1 {
     position: absolute;
-    bottom: 1rem;
-    left: 11.25vw;
+    bottom: 0;
+    left: calc(0.5rem + 2vw);
     font-size: clamp(2rem, 17.5vw, 5rem);
-    max-width: 70%;
 }   
 
-.about-info {
+.about {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     padding: 1rem;
 }
 
-.about-text {
+.about-info {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
-
-h2 {
-    text-align: center;
-    font-weight: 500;
-    font-size: 2rem;
 }
 
 .icons {
@@ -79,6 +78,10 @@ h2 {
 .icons img {
     width: 2rem;
     height: auto;
+}
+
+main {
+    margin-bottom: 3rem;
 }
 
 .projects-grid {
@@ -124,7 +127,6 @@ h2 {
 
 .footer {
     position: relative;
-    margin-top: 3rem;
 }
 
 .footer-bg {
@@ -154,17 +156,122 @@ h2 {
     padding: 0 1rem 0 1rem;
     gap: 1rem;
 }
+
 .contact-picture {
     position: relative;
     z-index: 1;
 }
+
 .contact-picture img {
     width: 100%;
     height: auto;
+    object-fit: contain;
 }
-/* Tablet */
-@media (min-width: 700px) {
 
+/* Tablet */
+@media (min-width: 600px) {
+    .trapezoid-bg {
+        top: -10vw;
+        height: 50vw;
+        transform: skewY(-10deg);
+    }
+
+    .about {
+        position: relative;
+        display: block;
+        margin: 1rem 1rem 0 1rem;
+    }
+
+    .profile-picture {
+        z-index: 10;
+        float: left;
+        padding: 0;
+        margin-bottom: -1rem;
+        transform: translate(-1rem, -1rem);
+    }
+
+    .profile-picture h1 {
+        position: absolute;
+        top: 0;
+        left: 105%;
+        font-size: 3rem;
+        white-space: nowrap;
+    }   
+
+    .profile-picture img {
+        width: 35vw;
+        max-width: 300px;
+        height: 35vw;
+        max-height: 300px;
+        object-fit: cover;
+    }
+
+    .about-info {
+        display: block;
+        z-index: 1;
+        margin: 0 1rem 0 1rem;
+        min-height: 320px;
+        padding: 1rem;
+        padding-top: 5rem;
+        background-position: bottom;
+        background-image: linear-gradient(white, white);
+        background-size: 100% 85%;
+        background-repeat: no-repeat;
+    }
+
+    .about-info h2 {
+        transform: translateY(-0.25rem);
+        margin-bottom: 1rem;
+    }
+
+    .about-info > .icons {
+        margin-top: 1rem;
+    }
+
+    /*
+    .about {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        padding-bottom: 0;
+    }
+
+    .profile-picture {
+        position: absolute;
+        z-index: 2; 
+    }
+
+    .profile-picture h1 {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 100%;
+        font-size: 3rem;
+        white-space: nowrap;
+    }   
+
+    .profile-picture img {
+        position: relative;
+        width: 35vw;
+        height: 35vw;
+        object-fit: cover;
+    }
+
+    .about-info {
+        padding: 1rem;
+        margin: 10% 5% 0 5%;
+        margin-bottom: 0;
+        background-color: white; 
+        position: relative;
+        z-index: 1;
+    }
+
+    .about-text {
+        margin-left: 35vw;
+    }
+
+    */
 }
 
 /* Desktop */
