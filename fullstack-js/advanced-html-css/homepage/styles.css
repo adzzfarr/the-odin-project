@@ -169,8 +169,7 @@ main {
 }
 
 /* Tablet */
-/*
-@media (min-width: 500px ) {
+@media (min-width: 500px) and (max-width: 799px) {
     .trapezoid-bg {
         top: -10vw;
         height: 50vw;
@@ -232,13 +231,13 @@ main {
     }
 
     .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    place-items: center;
-    padding: 1rem;
-    padding-top: 2rem;
-    gap: 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        place-items: center;
+        padding: 1rem;
+        padding-top: 2rem;
+        gap: 3rem;
     }
 
     .footer {
@@ -250,15 +249,21 @@ main {
         margin: 1rem;
     }
 }
-*/
 
 /* Desktop */
 @media (min-width: 800px) {
-    
     .trapezoid-bg {
         top: -10vw;
-        height: 50vw;
-        transform: skewY(-10deg);
+        height: calc(300px + 12.5vw) ;
+        transform: skewY(-7.5deg);
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1.25rem;
     }
 
     .about {
@@ -289,6 +294,7 @@ main {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        justify-content: space-around;
         z-index: 1;
         margin: calc(1rem + 0.125vw) 1rem 0 1rem;
         padding: 2rem;
@@ -300,5 +306,36 @@ main {
 
     .about-info > .icons {
         margin-top: 1rem;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);;
+        grid-template-rows: 1fr 1fr;
+        place-items: center;
+        padding: 1rem;
+        padding-top: 2rem;
+        gap: 3rem;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5vw;
+    }
+
+    .contact p {
+        font-size: 1.5rem;
+    }
+
+    .contact-picture {
+        max-width: 30vw;
+        margin: 1rem;
     }
 }
