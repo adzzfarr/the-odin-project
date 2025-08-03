@@ -169,7 +169,7 @@ main {
 }
 
 /* Tablet */
-@media (min-width: 600px) {
+@media (min-width: 500px) {
     .trapezoid-bg {
         top: -10vw;
         height: 50vw;
@@ -217,7 +217,9 @@ main {
         background-image: linear-gradient(white, white);
         background-size: 100% 85%;
         background-repeat: no-repeat;
-    }
+      
+        box-shadow: 0 5px 6px -5px rgba(0, 0, 0, 0.5); /* Shadow only on the bottom */
+    }   
 
     .about-info h2 {
         transform: translateY(-0.25rem);
