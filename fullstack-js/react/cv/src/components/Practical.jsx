@@ -1,5 +1,5 @@
 export function Practical() {
-        return (
+    return (
         <fieldset>
             <legend>Experience</legend>
             <div className="labelInput">
