@@ -8,15 +8,15 @@ export function Education() {
             </div>
             <div className="labelInput">
                 <label htmlFor="qualification">Qualification</label>
-                <input type="email" id="qualification" name="qualification" />
+                <input type="text" id="qualification" name="qualification" />
             </div>
             <div className="labelInput">
-                <label htmlFor="start_date">Start Date</label>
-                <input type="month" id="start_date" name="start_date" />
+                <label htmlFor="school_start_date">Start Date</label>
+                <input type="month" id="school_start_date" name="school_start_date" />
             </div>
             <div className="labelInput">    
-                <label htmlFor="end_date">End Date</label>
-                <input type="month" id="end_date" name="end_date" />
+                <label htmlFor="school_end_date">End Date</label>
+                <input type="month" id="school_end_date" name="school_end_date" />
             </div>
         </fieldset>
     );
