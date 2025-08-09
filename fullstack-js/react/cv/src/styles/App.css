@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+}
+
+form {
+  flex: 1;
+}
+
+.resume {
+  text-align: center;
+  flex: 3;
+}
+
+.labelInput {
+  display: flex;
+  flex-direction: column;
+}
