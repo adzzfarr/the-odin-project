@@ -9,7 +9,7 @@ export function Education({ educationInfo, onEducationInfoChange }) {
                     id="school" 
                     name="school"
                     value={educationInfo.school}
-                    onChange={(e) => onEducationInfoChange('name', e.target.value)} 
+                    onChange={(e) => onEducationInfoChange('school', e.target.value)} 
                 />
             </div>
             <div className="labelInput">

@@ -2,8 +2,9 @@ import { General } from './components/General.jsx';
 import { Education } from './components/Education.jsx';
 import { Practical } from './components/Practical.jsx';
 import { Resume } from './components/Resume.jsx';
-import './styles/App.css'
 import { useState } from 'react';
+import './styles/Form.css'
+import './styles/App.css'
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({
@@ -46,7 +47,9 @@ function App() {
         <Education educationInfo={educationInfo} onEducationInfoChange={handleEducationInfoChange} />
         <Practical practicalInfo={practicalInfo} onPracticalInfoChange={handlePracticalInfoChange} />
       </form>
-      <Resume generalInfo={generalInfo} educationInfo={educationInfo} practicalInfo={practicalInfo}/>
+      <div className='resume-container'>
+        <Resume generalInfo={generalInfo} educationInfo={educationInfo} practicalInfo={practicalInfo}/>
+      </div>
     </>
   )
 }

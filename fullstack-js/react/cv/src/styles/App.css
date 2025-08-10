@@ -6,15 +6,22 @@
 
 #root {
   display: flex;
+  min-height: 100vh;
 }
 
 form {
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
 
-.resume {
-  text-align: center;
+.resume-container {
+  display: flex;
   flex: 3;
+  justify-content: center;
+  align-items: center;
 }
 
 .labelInput {
