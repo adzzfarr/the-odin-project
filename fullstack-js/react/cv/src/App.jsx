@@ -27,14 +27,26 @@ function App() {
     setEducationInfo((prev) => ({...prev, [field]: value}));
   }
 
+  const [practicalInfo, setPracticalInfo] = useState({
+    'company': '',
+    'position': '',
+    'description': '',
+    'job_start_date': '',
+    'job_end_date': '',
+  });
+
+  const handlePracticalInfoChange = (field, value) => {
+    setPracticalInfo((prev) => ({...prev, [field]: value}));
+  }
+
   return (
     <>
       <form>
         <General generalInfo={generalInfo} onGeneralInfoChange={handleGeneralInfoChange} />
         <Education educationInfo={educationInfo} onEducationInfoChange={handleEducationInfoChange} />
-        <Practical />
+        <Practical practicalInfo={practicalInfo} onPracticalInfoChange={handlePracticalInfoChange} />
       </form>
-      <Resume generalInfo={generalInfo} educationInfo={educationInfo} />
+      <Resume generalInfo={generalInfo} educationInfo={educationInfo} practicalInfo={practicalInfo}/>
     </>
   )
 }
