@@ -1,0 +1,9 @@
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.scoreboard > h2 {
+    margin-top: -0.25rem;
+}
