@@ -6,7 +6,15 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4rem 0 4rem;
+  padding: 2rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
 }
 
 .game-info {
@@ -18,6 +26,12 @@ header {
   margin-top: -1rem;
 }
 
-main {
-  padding: 1rem;
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.scoreboard > h2 {
+    margin-top: -0.25rem;
 }
