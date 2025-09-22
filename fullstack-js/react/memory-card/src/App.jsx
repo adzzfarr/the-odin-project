@@ -5,7 +5,7 @@ import { MemoryCards } from './components/MemoryCards.jsx';
 
 const TOTAL_CARDS = 12;
 
-export default function App() {
+function App() {
 	const defaultCardOrder = Array.from({ length: TOTAL_CARDS }, (_, index) => index + 1);
 
     const [currentScore, setCurrentScore] = useState(0);
@@ -82,3 +82,5 @@ function shuffleArray(array) {
 
 	return shuffledArray;
 }
+
+export default App;
