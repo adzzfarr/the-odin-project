@@ -6,12 +6,17 @@ import { MemoryCards } from './components/MemoryCards';
 const TOTAL_CARDS = 12;
 
 export default function App() {
+	const defaultCardOrder = Array.from({ length: TOTAL_CARDS }, (_, index) => index + 1);
+
     const [currentScore, setCurrentScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
     const [clickedCardIds, setClickedCardIds] = useState(new Set());
-  
+	const [cardOrder, setCardOrder] = useState(defaultCardOrder);
+
     const handleCardClick = (id) => {
 		if (clickedCardIds.has(id)) { // Invalid Card
+            alert('You already clicked that card!');
+
             // Update best score
             setBestScore(Math.max(bestScore, currentScore));
 
@@ -20,6 +25,9 @@ export default function App() {
 
             // Reset clicked cards
             setClickedCardIds(new Set());
+
+			// Reset card order
+			setCardOrder(defaultCardOrder);
         } else { // Valid Card
             // Increase current score
             const newScore = currentScore + 1;
@@ -36,7 +44,12 @@ export default function App() {
               setBestScore(TOTAL_CARDS);
               setCurrentScore(0);
               setClickedCardIds(new Set());
+			  setCardOrder(defaultCardOrder);
             }
+
+			// Shuffle card order
+			const shuffledCardOrder = shuffleArray(cardOrder);
+			setCardOrder(shuffledCardOrder);
         }
     }
 
@@ -51,9 +64,21 @@ export default function App() {
 			</header> 
 			<main>
 			<MemoryCards 
+				cardOrder={cardOrder}
 				onCardClicked={handleCardClick}
 			/>
 			</main>
 		</>
 	);
+}
+
+function shuffleArray(array) {
+	const shuffledArray = [...array];
+
+	for (let i = shuffledArray.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+	}
+
+	return shuffledArray;
 }
