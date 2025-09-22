@@ -1,12 +1,24 @@
 #root {
-  max-width: 1280px;
+	width: 100%;
+	min-height: 100vh;
+	margin: 0 auto;
+	background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 55%, var(--bg-3) 100%);
+	color: var(--text-on-bg);
+	transition: background 300ms ease;
+	padding-bottom: 3rem;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  padding: 0 2rem;
+}
+
+header h1 {
+  color: var(--accent);
+  letter-spacing: 0.6px;
+  text-shadow: 0 2px 8px rgba(124,58,237,0.12);
 }
 
 main {
