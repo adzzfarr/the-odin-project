@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './styles/App.css';
-import { Scoreboard } from './components/Scoreboard';
-import { MemoryCards } from './components/MemoryCards';
+import { Scoreboard } from './components/Scoreboard.jsx';
+import { MemoryCards } from './components/MemoryCards.jsx';
 
 const TOTAL_CARDS = 12;
 

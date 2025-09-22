@@ -1,4 +1,4 @@
-import { Card } from "./Card";
+import { Card } from "./Card.jsx";
 import '../styles/MemoryCards.css';
 
 export function MemoryCards({ cardOrder, onCardClicked }) {
