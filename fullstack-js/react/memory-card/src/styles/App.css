@@ -17,3 +17,7 @@ header {
 .game-info > h2 {
   margin-top: -1rem;
 }
+
+main {
+  padding: 1rem;
+}
